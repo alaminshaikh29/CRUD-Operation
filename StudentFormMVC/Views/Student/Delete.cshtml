@@ -1,0 +1,48 @@
+﻿@model StudentFormMVC.Models.Students
+@{
+    @*ViewBag is a way to pass data form the controller to view*@
+    ViewBag.Title = "Delete";
+}
+<h2>Delete</h2>
+<hr />
+<h6>Think....Delete Sure??</h6>
+<hr/>
+<div>
+
+    <dl class="dl-horizontal">
+        @*The lambda operator => divides a lambda expression into two parts.
+            The left side is the input parameter and the right side is the lambda body.*@
+        @*DisplayNameFor is showing property's label and DisplayFor is presenting property's value inside the view*@
+        <dt>@Html.DisplayNameFor(model => model.Name)</dt>
+        <dd>@Html.DisplayFor(model => model.Name)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Email)</dt>
+        <dd>@Html.DisplayFor(model => model.Email)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Phone)</dt>
+        <dd>@Html.DisplayFor(model => model.Phone)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Address)</dt>
+        <dd>@Html.DisplayFor(model => model.Address)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Gender)</dt>
+        <dd>@Html.DisplayFor(model => model.Gender)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.DateOfBirth)</dt>
+        <dd>@Html.DisplayFor(model => model.DateOfBirth)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.IsActive)</dt>
+        <dd>@Html.DisplayFor(model => model.IsActive)</dd>
+
+    </dl>
+    @*AntiForgeryToken() Generates a hidden form field (anti-forgery token) that is validated when the form is submitted.*@
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+<div class="form-actions no-color">
+    <input class="btn btn-dark" type="submit" value="Delete" />|
+    @Html.ActionLink("Back to List", "Index")
+    @*link text ,action method name*@
+</div>
+    }
+</div>
